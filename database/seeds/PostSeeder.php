@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
         for ($i=0; $i < 50; $i++) { 
             $post = new Post();
 
-            $post->title = $faker->word(15,true);
+            $post->title = $faker->words(4,true);
             $post->slug = Str::slug($post->title, '-');
             $post->content = $faker->paragraph(10,true);
             $post->published_at = $faker->randomElement([null, $faker->dateTime()]);
