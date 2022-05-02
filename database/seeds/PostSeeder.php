@@ -1,6 +1,9 @@
 <?php
 
+use App\Post;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class PostSeeder extends Seeder
 {
@@ -9,8 +12,17 @@ class PostSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+        for ($i=0; $i < 50; $i++) { 
+            $post = new Post();
+
+            $post->title = $faker->word(15,true);
+            $post->slug = Str::slug($post->title, '-');
+            $post->content = $faker->paragraph(10,true);
+            $post->published_at = $faker->randomElement([null, $faker->dateTime()]);
+
+            $post->save();
+        }
     }
 }
