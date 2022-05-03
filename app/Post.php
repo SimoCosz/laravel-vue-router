@@ -21,7 +21,7 @@ class Post extends Model
         $post_present = Post::where('slug', $slug)->first();
 
         while($post_present){
-            $slug =  $slug_base . '-' . $counter;
+            $slug = $slug_base . '-' . $counter;
             $counter++;
             $post_present = Post::where('slug', $slug)->first();
         }
