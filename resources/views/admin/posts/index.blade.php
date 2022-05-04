@@ -11,6 +11,7 @@
         <th scope="col">#</th>
         <th scope="col">Titolo</th>
         <th scope="col">Slug</th>
+        {{-- <th scope="col">Categoria</th> --}}
         <th scope="col">Data pubblicazionedle</th>
         <th scope="col">Data creazione</th>
         <th></th>
@@ -21,6 +22,7 @@
       <tr>
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
+        {{-- <td>{{$post->category->name}}</td> --}}
         <td>{{$post->slug}}</td>
         <td>{{$post->published_at}}</td>
         <td>{{$post->created_at}}</td>
