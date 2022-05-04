@@ -97,11 +97,11 @@ class PostController extends Controller
 
         $data = $request->all();
         
-        if( $post->slug != $data['title'] ){
+        if( $post->title != $data['title'] ){
             $slug = Post::getUniqueSlug($data['title']);
+            $data['slug'] = $slug;
         };
-        // dd($data);
-        $data['slug'] = $slug;
+
         $post->update($data);
         return redirect()->route('admin.posts.index');
     }
