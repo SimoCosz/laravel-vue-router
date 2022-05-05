@@ -27,7 +27,7 @@
         <select class="form-control" name="category_id" id="category_id">
           <option value="">-- Nessuna --</option>
           @foreach ($categories as $category)
-            <option {{ old('category_id', optional($post->categories)->id) && old('category_id')? 'selected' : '' }} value="{{$category->id}}">{{$category->name}}</option>
+            <option {{ old('category_id', optional($post->category)->id) == $category->id? 'selected' : '' }} value="{{$category->id}}">{{$category->name}}</option>
           @endforeach
         </select>
     </div>
