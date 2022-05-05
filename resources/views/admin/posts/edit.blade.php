@@ -34,9 +34,22 @@
     @error('category_id')
       <div class="invalid-feedback">{{$message}}</div>
     @enderror
+
+    <label>Tag</label>
+    <div class="d-flex" style="gap:1rem">
+      @foreach ($tags as $tag)
+      <div class="mb-3 form-check">
+        <input type="checkbox" {{$post->tags->contains($tag)? 'checked' : ''}} class="form-check-input" value="{{$tag->id}}" name="tags[]" id="tags-{{$tag->id}}">
+        <label class="form-check-label" for="tags-{{$tag->id}}">{{$tag->name}}</label>
+      </div>
+      @endforeach
+    </div>
+    @error('tags')
+      <div class="text-danger">{{ $message }}</div>
+    @enderror
   
     <div class="mb-3">
-      <label for="content" class="form-label">Example textarea</label>
+      <label for="content" class="form-label">Contenuto</label>
       <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="3"> {{old('content')?: $post->content}} </textarea>
       @error('content')
           <div class="invalid-feedback"> {{$message}} </div>

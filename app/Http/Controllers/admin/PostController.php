@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -80,8 +81,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.edit', compact(['post', 'categories']));
+        return view('admin.posts.edit', compact(['post', 'categories', 'tags']));
     }
 
     /**
@@ -96,7 +98,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:150',
             'content' => 'required|string',
-            'published_at' => 'nullable|date|before_or_equal:today'
+            'published_at' => 'nullable|date|before_or_equal:today',
+            'tags' => 'exists:tags,id'
         ]);
 
         $data = $request->all();
@@ -105,6 +108,12 @@ class PostController extends Controller
             $slug = Post::getUniqueSlug($data['title']);
             $data['slug'] = $slug;
         };
+
+        if( array_key_exists('tags', $data) ){
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
 
         $post->update($data);
         return redirect()->route('admin.posts.index');
