@@ -15,6 +15,7 @@
         <th scope="col">Data pubblicazionedle</th>
         <th scope="col">Data creazione</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
