@@ -18,8 +18,15 @@ class CreatePostTagTable extends Migration
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('tag_id');
 
-            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
-            $table->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade');
+            $table->foreign('post_id')
+            ->references('id')
+            ->on('posts')
+            ->onDelete('cascade');
+            
+            $table->foreign('tag_id')
+            ->references('id')
+            ->on('tags')
+            ->onDelete('cascade');
 
             $table->primary(['post_id', 'tag_id']);
 
@@ -33,6 +40,6 @@ class CreatePostTagTable extends Migration
      */
     public function down()
     {  
-
+        Schema::dropIfExists('post_tag');
     }
 }
