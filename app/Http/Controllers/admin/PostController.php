@@ -42,8 +42,8 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:150',
-            'published_at' => 'nullable|date|before_or_equal:today',
             'content' => 'required|string',
+            'published_at' => 'nullable|date|before_or_equal:today',
             'category_id' => 'nullable|exists:categories,id'
         ]);
 

@@ -31,6 +31,7 @@ class AddForeignCategoryPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
+            
             $table->dropColumn('category_id');
         });
     }
