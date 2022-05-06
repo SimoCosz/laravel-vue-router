@@ -3,6 +3,7 @@
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Faker\Generator as Faker;
 
 class UserSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         //admin
         User::create([
@@ -19,5 +20,13 @@ class UserSeeder extends Seeder
             'email' => 'coszach@hotmail.it',
             'password' => Hash::make('prova123'),
         ]);
+
+        for ($i=0; $i < 10; $i++) { 
+            User::create([
+                'name' => $faker->name(),
+                'email' => $faker->unique()->email(),
+                'password' => Hash::make($faker->password()),
+            ]);
+        }
     }
 }

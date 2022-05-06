@@ -3,6 +3,7 @@
 use App\Category;
 use App\Post;
 use App\Tag;
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -31,6 +32,9 @@ class PostSeeder extends Seeder
             $post->category_id = $faker->optional()->randomElement($categoriesId);
             
             $randomTags = $faker->randomElements($tagsId, 2);
+            
+            $user = User::inRandomOrder()->first();
+            $post->user_id = $user->id;
 
             $post->save();
 
