@@ -57,7 +57,8 @@
     </div>
   
     <button class="btn btn-primary" type="submit">Modifica</button>
-  
+    <a class="btn btn-outline-info" href="{{route('admin.posts.index')}}">Annulla</a>
+    
   </form>
 </div>
 @endsection
