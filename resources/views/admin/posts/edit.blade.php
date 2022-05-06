@@ -5,7 +5,7 @@
   <form action="{{route('admin.posts.update', $post)}}" method="POST">
     @csrf
     @method('PUT')
-  
+    
     <div class="mb-3">
       <label for="title" class="form-label"> Titolo </label>
       <input type="text" class="form-control @error('title') is-invalid @enderror" value=" {{old('title')?: $post->title}} " name="title" id="title">
