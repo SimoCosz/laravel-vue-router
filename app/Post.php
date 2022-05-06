@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -45,5 +46,23 @@ class Post extends Model
     public function getRouteKeyName()
    {
       return 'slug';
+   }
+
+   public function getDate($d){
+       if($d){
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $d);
+        return $date->format('l j F');
+       } else {
+        return Carbon::now();
+       }
+   }
+
+   public function getTimeEdit($d){
+    if($d){
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $d);
+        return $date->locale('it-IT')->diffForHumans();
+    } else {
+        return Carbon::now();
+    }
    }
 }

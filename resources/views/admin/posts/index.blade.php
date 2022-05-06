@@ -11,6 +11,7 @@
         <th scope="col">#</th>
         <th scope="col">Titolo</th>
         <th scope="col">Slug</th>
+        <th scope="col">Utente</th>
         <th scope="col">Categoria</th>
         <th scope="col">Tag</th>
         <th scope="col">Data pubblicazionedle</th>
@@ -25,14 +26,15 @@
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
+        <td>{{$post->user->name}}</td>
         <td>{{$post->category ? $post->category->name : '-'}}</td>
         <td>
           @foreach ($post->tags as $tag)
             <span class="badge rounded-pill bg-info text-dark">{{$tag->name}}</span>  
           @endforeach
         </td>
-        <td>{{$post->published_at}}</td>
-        <td>{{$post->created_at}}</td>
+        <td>{{$post->published_at? $post->getTimeEdit($post->published_at) : ''}}</td>
+        <td>{{$post->getDate($post->created_at)}}</td>
         <td>
           <a class="btn btn-small btn-success" href="{{route('admin.posts.edit', $post)}}">Edit</a>
         </td>
