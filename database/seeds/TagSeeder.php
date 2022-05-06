@@ -16,9 +16,14 @@ class TagSeeder extends Seeder
         $tags = [
             'Appassionante',
             'Violento',
-            'Bizzardo',
+            'Bizzarro',
             'Assurdo',
-            'Irriverente'
+            'Irriverente',
+            'Ammiccante',
+            'Suspense',
+            'Cupo',
+            'Violento',
+            'Motivante'
         ];
 
         foreach ($tags as $name) {
