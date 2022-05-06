@@ -26,7 +26,11 @@
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
-        <td>{{$post->user->name}}</td>
+        <td>
+          <a href="{{route('admin.user.post', $post->user->id)}}">
+            {{$post->user->name}}
+          </a>
+        </td>
         <td>{{$post->category ? $post->category->name : '-'}}</td>
         <td>
           @foreach ($post->tags as $tag)

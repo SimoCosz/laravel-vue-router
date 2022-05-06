@@ -30,5 +30,5 @@ Route::prefix('admin')
 
     Route::resource('users', 'UserController');
 
-    Route::get('/users/{user}/posts', 'PostUserController@index');
+    Route::get('/users/{user}/posts', 'PostUserController@index')->name('user.post');
 });
