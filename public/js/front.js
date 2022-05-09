@@ -3200,7 +3200,7 @@ var render = function () {
               "li",
               {
                 key: tag.id,
-                staticClass: "tag rounded-full bg-black/30 px-3 text-xs",
+                staticClass: "tag rounded-full bg-orange-300/60 px-3 text-xs",
               },
               [_vm._v(" " + _vm._s(tag.name) + " ")]
             )
@@ -3233,7 +3233,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "app bg-teal-700 text-teal-200" }, [
+  return _c("div", { staticClass: "app bg-slate-900 text-teal-200 p-5" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("main", [_c("PostsIndex")], 1),
@@ -3248,12 +3248,30 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("header", [
       _c("nav", [
-        _c("ul", [
-          _c("li", [_vm._v("Home")]),
+        _c("ul", { staticClass: "flex justify-center items-center gap-3" }, [
+          _c(
+            "li",
+            {
+              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+            },
+            [_vm._v("Home")]
+          ),
           _vm._v(" "),
-          _c("li", [_vm._v("Posts")]),
+          _c(
+            "li",
+            {
+              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+            },
+            [_vm._v("Posts")]
+          ),
           _vm._v(" "),
-          _c("li", [_vm._v("Category")]),
+          _c(
+            "li",
+            {
+              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+            },
+            [_vm._v("Category")]
+          ),
         ]),
       ]),
     ])

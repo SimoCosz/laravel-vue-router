@@ -1,11 +1,11 @@
 <template>
-  <div class="app bg-teal-700 text-teal-200">
+  <div class="app bg-slate-900 text-teal-200 p-5">
     <header>
       <nav>
-        <ul>
-          <li>Home</li>
-          <li>Posts</li>
-          <li>Category</li>
+        <ul class="flex justify-center items-center gap-3">
+          <li class="border rounded border-white/30 px-2 cursor-pointer">Home</li>
+          <li class="border rounded border-white/30 px-2 cursor-pointer">Posts</li>
+          <li class="border rounded border-white/30 px-2 cursor-pointer">Category</li>
         </ul>
       </nav>
     </header>

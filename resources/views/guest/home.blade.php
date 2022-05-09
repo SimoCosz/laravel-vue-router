@@ -35,7 +35,7 @@
     </script>
 </head>
 <body>
-  <div id="root">Qui ci sta VUE</div>
+  <div id="root"></div>
 
   <script src="{{ asset('js/front.js') }}"></script>
 </body>
