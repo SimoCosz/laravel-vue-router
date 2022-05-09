@@ -1993,6 +1993,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2000,7 +2004,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      lastPage: 0,
+      currentPage: 1
     };
   },
   methods: {
@@ -2009,7 +2015,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts').then(function (res) {
         var posts = res.data.posts;
-        _this.posts = posts;
+        var data = posts.data,
+            last_page = posts.last_page,
+            current_page = posts.current_page;
+        _this.posts = data;
+        _this.lastPage = last_page;
+        _this.currentPage = current_page;
       })["catch"](function (err) {
         console.warn(err);
       });
@@ -3152,10 +3163,13 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card post rounded-lg border border-white/30" },
+    {
+      staticClass:
+        "card post rounded-lg border border-white/30 bg-black/50 overflow-hidden",
+    },
     [
       _c("img", {
-        staticClass: "w-full object-cover overflow-hidden",
+        staticClass: "w-full object-cover",
         attrs: { src: "https://picsum.photos/300/150", alt: "" },
       }),
       _vm._v(" "),
@@ -3180,7 +3194,7 @@ var render = function () {
               "li",
               {
                 key: tag.id,
-                staticClass: "tag rounded-full bg-black/30 w-30 px-3",
+                staticClass: "tag rounded-full bg-black/30 px-3 text-xs",
               },
               [_vm._v(" " + _vm._s(tag.name) + " ")]
             )
@@ -3274,6 +3288,12 @@ var render = function () {
       }),
       1
     ),
+    _vm._v(" "),
+    _c("div", { staticClass: "container py-4" }, [
+      _c("p", [_vm._v("last page: " + _vm._s(_vm.lastPage))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("current page: " + _vm._s(_vm.currentPage))]),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -3281,8 +3301,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Ultimi Posts")]),
+    return _c("div", { staticClass: "container flex justify-center py-10" }, [
+      _c("h1", { staticClass: "uppercase font-bold text-xl my-5" }, [
+        _vm._v("Ultimi Posts"),
+      ]),
     ])
   },
 ]
