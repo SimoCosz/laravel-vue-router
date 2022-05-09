@@ -9,17 +9,18 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+    {{-- Tailwind --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 </head>
 <body>
   <div id="root">Qui ci sta VUE</div>
+
+  <script src="{{ asset('js/front.js') }}"></script>
 </body>
 </html>
