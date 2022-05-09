@@ -7,8 +7,9 @@
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </div>
   <div class="container py-4">
-    <p>last page: {{lastPage}}</p>
-    <p>current page: {{currentPage}}</p>
+    <ul class="pagination flex justify-center item-center gap-4">
+      <li :class="[ currentPage === n ? 'bg-orange-400' : 'bg-white/30', 'dot rounded-full w-10 h-10 flex items-center justify-center text-sm']" v-for="n in lastPage" :key="n" > {{ n }} </li>
+    </ul>
   </div>
 </div>
 </template>
