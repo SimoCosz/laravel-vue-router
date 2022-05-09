@@ -32,3 +32,7 @@ Route::prefix('admin')
 
     Route::get('/users/{user}/posts', 'PostUserController@index')->name('user.post');
 });
+
+Route::fallback(function(){
+    return view('guest.home');
+});
