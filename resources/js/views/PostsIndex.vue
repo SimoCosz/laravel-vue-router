@@ -8,7 +8,7 @@
   </div>
   <div class="container py-4">
     <ul class="pagination flex justify-center item-center gap-4">
-      <li :class="[ currentPage === n ? 'bg-orange-400' : 'bg-white/30', 'dot rounded-full w-10 h-10 flex items-center justify-center text-sm']" v-for="n in lastPage" :key="n" > {{ n }} </li>
+      <li @click="fetchPosts(n)" :class="[ currentPage === n ? 'bg-orange-400' : 'bg-white/30', 'dot cursor-pointer rounded-full w-10 h-10 flex items-center justify-center text-sm']" v-for="n in lastPage" :key="n" > {{ n }} </li>
     </ul>
   </div>
 </div>
@@ -31,9 +31,13 @@ export default {
   },
 
   methods:{
-    fetchPosts() {
+    fetchPosts(page = 1) {
       
-      axios.get('/api/posts')
+      axios.get('/api/posts', {
+        params: {
+          page
+        }
+      })
       .then( res => {
         const { posts } = res.data
         const { data, last_page, current_page } = posts

@@ -2014,7 +2014,12 @@ __webpack_require__.r(__webpack_exports__);
     fetchPosts: function fetchPosts() {
       var _this = this;
 
-      axios.get('/api/posts').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/api/posts', {
+        params: {
+          page: page
+        }
+      }).then(function (res) {
         var posts = res.data.posts;
         var data = posts.data,
             last_page = posts.last_page,
@@ -3301,8 +3306,13 @@ var render = function () {
               key: n,
               class: [
                 _vm.currentPage === n ? "bg-orange-400" : "bg-white/30",
-                "dot rounded-full w-10 h-10 flex items-center justify-center text-sm",
+                "dot cursor-pointer rounded-full w-10 h-10 flex items-center justify-center text-sm",
               ],
+              on: {
+                click: function ($event) {
+                  return _vm.fetchPosts(n)
+                },
+              },
             },
             [_vm._v(" " + _vm._s(n) + " ")]
           )
