@@ -18,7 +18,7 @@ class PostController extends Controller
         $posts = Post::with(['category', 'tags'])->limit(12)->get();
         
         return response()->json([
-            'post' => $posts,
+            'posts' => $posts,
             'success' => true
         ]);
     }

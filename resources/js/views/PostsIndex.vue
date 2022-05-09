@@ -3,19 +3,19 @@
   <div class="container">
     <h1>Ultimi Posts</h1>
   </div>
-  <div class="container">
-    <div v-for="post in posts" :key="post.id">
-      {{ post.title }}
-    </div>
+  <div class="container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+    <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </div>
 </template>
 
 <script>
-import Axios from "axios";
-
+import PostCard from '../components/PostCard.vue'
 
 export default {
+  components: {
+    PostCard,
+  },
 
   data(){
     return{
@@ -26,9 +26,10 @@ export default {
   methods:{
     fetchPosts() {
       
-      Axios.get('api/posts')
+      axios.get('/api/posts')
       .then( res => {
-        console.log(res.data)
+        const { posts } = res.data
+        this.posts = posts
       })
       .catch( err => {
         console.warn(err)
