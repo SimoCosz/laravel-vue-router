@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['category', 'tags'])->limit(12)->get();
+        $posts = Post::with(['category', 'tags'])->where('published_at', '!=', null)->orderBy('published_at', 'desc')->limit(12)->get();
         
         return response()->json([
             'posts' => $posts,

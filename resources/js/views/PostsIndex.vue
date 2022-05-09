@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="container">
+  <div class="container flex justify-center">
     <h1>Ultimi Posts</h1>
   </div>
   <div class="container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
