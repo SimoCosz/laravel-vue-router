@@ -7,6 +7,7 @@ import Posts from '../pages/PostsIndex.vue'
 import Post from '../pages/PostShow.vue'
 import Contact from '../pages/Contact.vue'
 
+
 const routes = [
   {
     path: '/posts',
@@ -23,6 +24,7 @@ const routes = [
     name: 'contact',
     component: Contact
   },
+  
 ]
 
 const router = new VueRouter({

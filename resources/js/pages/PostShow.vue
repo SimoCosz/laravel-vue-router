@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <div class="py-12">
+    <img src="https://picsum.photos/1380/450" alt="">
     <div v-if="!loading" class="container flex flex-col items-start py-3">
       <h1 class="text-3xl uppercase self-center text-cyan-500 mt-10"> {{post.title}} </h1>
       <p v-if="post.category" class="text-lg text-orange-300 mt-5"><span class="text-white">Categoria:</span> {{post.category.name}} </p>

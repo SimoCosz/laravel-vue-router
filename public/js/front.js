@@ -1980,6 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3345,7 +3346,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", { staticClass: "py-12" }, [
+    _c("img", { attrs: { src: "https://picsum.photos/1380/450", alt: "" } }),
+    _vm._v(" "),
     !_vm.loading
       ? _c("div", { staticClass: "container flex flex-col items-start py-3" }, [
           _c(
