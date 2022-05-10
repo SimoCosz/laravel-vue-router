@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter)
 
 import Posts from '../pages/PostsIndex.vue'
+import Post from '../pages/PostShow.vue'
 import Contact from '../pages/Contact.vue'
 
 const routes = [
@@ -11,6 +12,11 @@ const routes = [
     path: '/posts',
     name: 'posts.index',
     component: Posts
+  },
+  {
+    path: '/posts/:slug',
+    name: 'post.show',
+    component: Post,
   },
   {
     path: '/contact',
@@ -21,7 +27,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes: routes
 })
 
 export default router
