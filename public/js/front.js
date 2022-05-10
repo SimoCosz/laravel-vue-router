@@ -3260,7 +3260,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "card post rounded-lg border border-white/30 bg-black/50 overflow-hidden",
+        "card post shadow-xl shadow-black hover:shadow-white/20 border border-white/30 bg-black/50 hover:border-white ease-in duration-300 overflow-hidden",
     },
     [
       _c("img", {
@@ -3304,7 +3304,8 @@ var render = function () {
           _c(
             "router-link",
             {
-              staticClass: "rounded-md bg-emerald-600 px-3 my-3",
+              staticClass:
+                "rounded-md bg-emerald-600 hover:bg-emerald-900 px-3 my-3 ease-in duration-100",
               attrs: {
                 tag: "button",
                 to: { name: "post.show", params: { slug: _vm.post.slug } },
@@ -3569,7 +3570,8 @@ var render = function () {
           _c(
             "li",
             {
-              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+              staticClass:
+                "hover:bg-white hover:text-slate-900 ease-in duration-300 border rounded border-white/30 px-2 cursor-pointer",
             },
             [_vm._v("Home")]
           ),
@@ -3577,7 +3579,8 @@ var render = function () {
           _c(
             "li",
             {
-              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+              staticClass:
+                "hover:bg-white hover:text-slate-900 ease-in duration-300 border rounded border-white/30 px-2 cursor-pointer",
             },
             [_c("router-link", { attrs: { to: "/posts" } }, [_vm._v("Post")])],
             1
@@ -3586,7 +3589,8 @@ var render = function () {
           _c(
             "li",
             {
-              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+              staticClass:
+                "hover:bg-white hover:text-slate-900 ease-in duration-300 border rounded border-white/30 px-2 cursor-pointer",
             },
             [_vm._v("Category")]
           ),
@@ -3594,7 +3598,8 @@ var render = function () {
           _c(
             "li",
             {
-              staticClass: "border rounded border-white/30 px-2 cursor-pointer",
+              staticClass:
+                "hover:bg-white hover:text-slate-900 ease-in duration-300 border rounded border-white/30 px-2 cursor-pointer",
             },
             [
               _c("router-link", { attrs: { to: { name: "contact" } } }, [
