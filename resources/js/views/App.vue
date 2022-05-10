@@ -4,13 +4,18 @@
       <nav>
         <ul class="flex justify-center items-center gap-3">
           <li class="border rounded border-white/30 px-2 cursor-pointer">Home</li>
-          <li class="border rounded border-white/30 px-2 cursor-pointer">Posts</li>
+          <li class="border rounded border-white/30 px-2 cursor-pointer">
+            <router-link to="/posts">Post</router-link>
+          </li>
           <li class="border rounded border-white/30 px-2 cursor-pointer">Category</li>
+          <li class="border rounded border-white/30 px-2 cursor-pointer">
+            <router-link :to=" {name: 'contact'} ">Contact</router-link>
+          </li>
         </ul>
       </nav>
     </header>
     <main>
-      <PostsIndex />
+      <router-view></router-view>
     </main>
     <footer>
       &copy; Boolpress 2022
@@ -19,12 +24,10 @@
 </template>
 
 <script>
-import PostsIndex from "./PostsIndex.vue";
+
 
 export default {
-  components:{
-    PostsIndex,
-}
+
 }
 </script>
 
