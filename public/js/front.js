@@ -2139,6 +2139,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2149,6 +2154,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
+      categories: [],
       lastPage: 0,
       currentPage: 1
     };
@@ -2173,10 +2179,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.warn(err);
       });
-    }
+    },
+    fetchCategories: function fetchCategories() {}
   },
   mounted: function mounted() {
     this.fetchPosts();
+    this.fetchCategories();
   }
 });
 
@@ -3821,6 +3829,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("Layout", [
     _c("div", [
+      _c("div", { staticClass: "container" }, [_c("ul")]),
+      _vm._v(" "),
       _c("div", { staticClass: "container flex justify-center py-10" }, [
         _c("h1", { staticClass: "uppercase font-bold text-xl my-5" }, [
           _vm._v("Ultimi Posts"),

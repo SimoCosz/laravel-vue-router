@@ -1,6 +1,11 @@
 <template>
   <Layout>
     <div>
+      <div class="container">
+        <ul>
+
+        </ul>
+      </div>
       <div class="container flex justify-center py-10">
         <h1 class="uppercase font-bold text-xl my-5">Ultimi Posts</h1>
       </div>
@@ -29,6 +34,7 @@ export default {
   data(){
     return{
       posts: [],
+      categories: [],
       lastPage: 0,
       currentPage: 1,
     }
@@ -53,11 +59,16 @@ export default {
         console.warn(err)
       })
 
+    },
+
+    fetchCategories(){
+      
     }
   },
 
   mounted(){
     this.fetchPosts();
+    this.fetchCategories();
   }
 
 }

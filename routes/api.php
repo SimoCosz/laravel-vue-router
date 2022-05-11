@@ -25,4 +25,6 @@ Route::namespace('Api')->group(function(){
     ])->parameters([
         'posts' => 'post:slug'
     ]);
+
+    Route::get('/categories', 'CategoryController@index');
 });
