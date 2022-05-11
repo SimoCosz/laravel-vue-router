@@ -1,25 +1,29 @@
 <template>
-<div>
-  <div class="container flex justify-center py-10">
-    <h1 class="uppercase font-bold text-xl my-5">Ultimi Posts</h1>
-  </div>
-  <div class="container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
-    <PostCard v-for="post in posts" :key="post.id" :post="post" />
-  </div>
-  <div class="container py-4">
-    <ul class="pagination flex justify-center item-center gap-4">
-      <li @click="fetchPosts(n)" :class="[ currentPage === n ? 'bg-orange-400' : 'bg-white/30', 'dot cursor-pointer rounded-full w-10 h-10 flex items-center justify-center text-sm']" v-for="n in lastPage" :key="n" > {{ n }} </li>
-    </ul>
-  </div>
-</div>
+  <Layout>
+    <div>
+      <div class="container flex justify-center py-10">
+        <h1 class="uppercase font-bold text-xl my-5">Ultimi Posts</h1>
+      </div>
+      <div class="container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+        <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      </div>
+      <div class="container py-4">
+        <ul class="pagination flex justify-center item-center gap-4">
+          <li @click="fetchPosts(n)" :class="[ currentPage === n ? 'bg-orange-400' : 'bg-white/30', 'dot cursor-pointer rounded-full w-10 h-10 flex items-center justify-center text-sm']" v-for="n in lastPage" :key="n" > {{ n }} </li>
+        </ul>
+      </div>
+    </div>
+  </Layout>
 </template>
 
 <script>
 import PostCard from '../components/PostCard.vue'
+import Layout from '../layouts/Layout.vue'
 
 export default {
   components: {
     PostCard,
+    Layout
   },
 
   data(){

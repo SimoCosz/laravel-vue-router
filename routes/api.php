@@ -22,5 +22,7 @@ Route::namespace('Api')->group(function(){
     Route::resource('posts', 'PostController')->only([
         'index',
         'show'
+    ])->parameters([
+        'posts' => 'post:slug'
     ]);
 });
