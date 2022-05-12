@@ -7,6 +7,7 @@ import Posts from '../pages/PostsIndex.vue'
 import Post from '../pages/PostShow.vue'
 import Contact from '../pages/Contact.vue'
 import NotFound from '../pages/404.vue'
+import CategoryArchive from '../pages/CategoryArchive.vue'
 
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     path: '/posts/:slug',
     name: 'post.show',
     component: Post,
+  },
+  {
+    path: '/categories/:slug',
+    name: 'categories.archive',
+    component: CategoryArchive
   },
   {
     path: '/contact',

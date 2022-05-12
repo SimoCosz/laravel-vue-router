@@ -1,9 +1,11 @@
 <template>
   <Layout>
     <div>
-      <div class="container">
-        <ul>
-
+      <div class="container pt-10">
+        <ul class="flex flex-wrap gap-4 items-center">
+          <router-link tag="li" :to="{ name: 'categories.archive', params:{slug: category.slug} }" class="cursor-pointer px-3 py-1 rounded-full border border-white/30 text-sm whitespace-nowrap" v-for="category in categories" :key="category.id">
+            {{category.name}}
+          </router-link>
         </ul>
       </div>
       <div class="container flex justify-center py-10">
@@ -62,7 +64,11 @@ export default {
     },
 
     fetchCategories(){
-      
+      axios.get('/api/categories')
+      .then(res => {
+        const {categories} = res.data
+        this.categories =categories
+      })
     }
   },
 

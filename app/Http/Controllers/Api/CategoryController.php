@@ -17,7 +17,18 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return response()->json(compact('categories'));
+        $success = true;
+        return response()->json(compact('categories', 'success'));
+    }
+
+    public function archive($slug)
+    {
+        $category = Category::with('post')->where('slug', '=', $slug)->first();
+        return response()->json([
+            'category' => $category,
+            'posts' => $category->post,
+            'success' => true,
+        ]);
     }
 
     /**
