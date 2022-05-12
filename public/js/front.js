@@ -2215,6 +2215,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4014,14 +4026,14 @@ var render = function () {
       _c("div", { staticClass: "container pt-10" }, [
         _c(
           "ul",
-          { staticClass: "flex flex-wrap gap-4 items-center" },
+          { staticClass: "flex flex-wrap gap-4 items-center justify-center" },
           _vm._l(_vm.categories, function (category) {
             return _c(
               "router-link",
               {
                 key: category.id,
                 staticClass:
-                  "cursor-pointer px-3 py-1 rounded-full border border-white/30 text-sm whitespace-nowrap",
+                  "cursor-pointer\n          px-2\n          rounded-full\n          border\n          border-white/30\n          text-xs\n          whitespace-nowrap\n          hover:bg-orange-300/70\n          hover:text-slate-900\n          hover:shadow-white/20\n          hover:scale-125\n          ease-in duration-200",
                 attrs: {
                   tag: "li",
                   to: {

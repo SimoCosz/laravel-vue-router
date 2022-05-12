@@ -2,8 +2,20 @@
   <Layout>
     <div>
       <div class="container pt-10">
-        <ul class="flex flex-wrap gap-4 items-center">
-          <router-link tag="li" :to="{ name: 'categories.archive', params:{slug: category.slug} }" class="cursor-pointer px-3 py-1 rounded-full border border-white/30 text-sm whitespace-nowrap" v-for="category in categories" :key="category.id">
+        <ul class="flex flex-wrap gap-4 items-center justify-center">
+          <router-link tag="li" :to="{ name: 'categories.archive', params:{slug: category.slug} }" v-for="category in categories" :key="category.id"
+          class="cursor-pointer
+            px-2
+            rounded-full
+            border
+            border-white/30
+            text-xs
+            whitespace-nowrap
+            hover:bg-orange-300/70
+            hover:text-slate-900
+            hover:shadow-white/20
+            hover:scale-125
+            ease-in duration-200">
             {{category.name}}
           </router-link>
         </ul>
