@@ -4,9 +4,12 @@ namespace App\Http\Controllers\admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Mail\SendPostDeletedMail;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -56,6 +59,7 @@ class PostController extends Controller
 
         $post->fill($data);
         $post->slug = $slug;
+        $post->user_id = Auth::id();
 
         $post->save();
         return redirect()->route('admin.posts.index');
@@ -127,7 +131,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $mail = $post->mail;
+
         $post->delete();
+
+        Mail::to($mail)->send(new SendPostDeletedMail);
+
         return redirect()->route('admin.posts.index');
     }
 }

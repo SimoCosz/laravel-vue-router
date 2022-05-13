@@ -27,9 +27,11 @@
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
         <td>
-          <a href="{{route('admin.user.post', $post->user->id)}}">
-            {{$post->user->name}}
-          </a>
+          @if($post->user)
+            <a href="{{route('admin.user.post', $post->user->id)}}">
+              {{$post->user->name}}
+            </a>
+          @endif
         </td>
         <td>{{$post->category ? $post->category->name : '-'}}</td>
         <td>
