@@ -130,12 +130,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
-        $mail = $post->mail;
-
+    {   
         $post->delete();
 
-        Mail::to($mail)->send(new SendPostDeletedMail);
+        Mail::to('info@boolpress.com')->send(new SendPostDeletedMail($post));
 
         return redirect()->route('admin.posts.index');
     }
